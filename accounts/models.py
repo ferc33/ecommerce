@@ -1,20 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-username = ''
+
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self, first_name, last_name, email, password=None):
+    def create_user(self, first_name, last_name, username, email, password=None):
         if not email:
             raise ValueError('El usuario debe ingresar un email')
        
         if not username:
             raise ValueError('El usuario debe ingresar un username')
         
-        user = self.models(
-            email=self.normalize_email(email)
+        user = self.model(
+            email=self.normalize_email(email),
             username=username,
-            firt_name=firt_name,
+            first_name=first_name,
             last_name=last_name,
         )
 
@@ -23,12 +23,12 @@ class MyAccountManager(BaseUserManager):
 
         return user
     
-    def create_superuser(self,firt_name, last_name, email, username, password):
+    def create_superuser(self,first_name, last_name, email, username, password):
         user = self.create_user(
             email = self.normalize_email(email),
             username = username,
             password = password,
-            first_name= firt_name,
+            first_name= first_name,
             last_name=last_name,
         )
         user.is_admin = True
@@ -42,7 +42,7 @@ class Account(AbstractBaseUser):
     first_name =models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     username = models.CharField(max_length=100, unique=True)
-    email = models.CharField(max_length=50)
+    email = models.CharField(max_length=100, unique=True)
     phone_number = models.CharField(max_length=50)
 
 # Campos atributos de django
@@ -54,16 +54,19 @@ class Account(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
 
-    USERNAME_FIELDS = 'email'
-    REQUIRED_FIELDS = ['username','fist_name','last_name']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username','first_name','last_name']
 
+    objects = MyAccountManager()
 
     def __str__(self):
         return self.email
     
-    def has_name(self,perm, obj=None):
+    def has_perm(self,perm, obj=None):
         return self.is_admin
     
+    def has_module_perms(self,add_label):
+        return True
     
 
         
