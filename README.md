@@ -1,86 +1,75 @@
-Techno gas
 
-Repuestool es un ecommerce que vende repuestos de sanitarios y gas. El proyecto está desarrollado en Django, un framework web de Python.
+# 📊 Proyecto Principal de E-commerce
 
-Descripción
-Repuestool ofrece una amplia gama de repuestos de sanitarios y gas para satisfacer las necesidades de sus clientes. Los clientes pueden encontrar repuestos para todo tipo de marcas y modelos de sanitarios y gas.
+Este proyecto es una plataforma de comercio electrónico desarrollada para gestionar inventarios, procesar pedidos y manejar datos de clientes de manera eficiente.
 
-El proyecto está diseñado para ser fácil de usar y navegar. Los clientes pueden encontrar fácilmente los productos que buscan utilizando la barra de búsqueda o navegando por las categorías de productos.
+## 🚀 Tecnologías Utilizadas
 
-Instalación
-Para instalar el proyecto, sigue estos pasos:
-
-Crea un entorno virtual con Python 3.
-Instala las dependencias del proyecto:
-pip install -r requirements.txt
+- **Frontend**: React.js
+- **Backend**: Django
+- **Base de Datos**: PostgreSQL
 
 
-3. Crea una base de datos MySQL y crea un usuario para el proyecto:
+## 🛠️ Instalación
 
-mysql -u root -p
+1. Clona el repositorio:
+   ```sh
+   git clone https://github.com/tu-usuario/ecommerce-main.git
+   ```
+2. Navega al directorio del proyecto:
+   ```sh
+   cd ecommerce-main
+   ```
+3. Configura el entorno virtual e instala las dependencias:
+   ```sh
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+4. Configura los ajustes de la base de datos en `settings.py`.
 
+## ⚙️ Configuración
 
-CREATE DATABASE repuestool;
+1. Aplica las migraciones de la base de datos:
+   ```sh
+   python manage.py migrate
+   ```
+2. Crea un superusuario para acceso de administrador:
+   ```sh
+   python manage.py createsuperuser
+   ```
+3. Ejecuta el servidor de desarrollo:
+   ```sh
+   python manage.py runserver
+   ```
 
+## 🚀 Uso
 
-CREATE USER 'repuestool'@'localhost' IDENTIFIED BY 'password';
+1. Accede al panel de administración en `http://localhost:8000/admin` para gestionar inventarios y pedidos.
+2. Explora el sitio web principal en `http://localhost:8000/`.
 
+## 🌟 Funcionalidades
 
-GRANT ALL PRIVILEGES ON repuestool.* TO 'repuestool'@'localhost';
+- **Autenticación de Usuarios**: Inicio de sesión y registro seguro.
+- **Gestión de Productos**: Añadir, editar y eliminar productos.
+- **Procesamiento de Pedidos**: Manejar pedidos de clientes de manera eficiente.
+- **Gestión de Inventarios**: Seguimiento de niveles de stock de productos.
+- **Diseño Responsivo**: Interfaz de usuario amigable para móviles.
 
+## 🤝 Contribuciones
 
-4. Copia el archivo `.env.example` a `.env` y configura las variables de entorno según tu entorno:
+1. Haz un fork del repositorio.
+2. Crea tu rama de funcionalidad (`git checkout -b feature/FuncionalidadAsombrosa`).
+3. Realiza tus cambios (`git commit -m 'Añadir FuncionalidadAsombrosa'`).
+4. Sube los cambios a la rama (`git push origin feature/FuncionalidadAsombrosa`).
+5. Abre un pull request.
 
-cp .env.example .env
+## 📜 Licencia
 
+Distribuido bajo la Licencia MIT. Consulta el archivo `LICENSE` para más información.
 
-5. Ejecuta las migraciones de Django:
+## 📧 Contacto
 
-python manage.py migrate
+- Correo electrónico: fcassera@protonmail.com
+- Enlace del proyecto: [https://github.com/ferc33/ecommerce](https://github.com/ferc33/ecommerce)
 
-
-6. Crea un superusuario para el proyecto:
-
-python manage.py createsuperuser
-
-
-7. Inicia el proyecto:
-
-python manage.py runserver
-
-
-El proyecto ahora debería estar instalado y ejecutándose en tu máquina local.
-
-## Pruebas
-
-Para ejecutar las pruebas del proyecto, sigue estos pasos:
-
-1. Instala las dependencias de las pruebas:
-
-pip install -r requirements-dev.txt
-
-
-2. Ejecuta las pruebas:
-
-python manage.py test
-
-Documentación
-La documentación del proyecto se encuentra en el directorio docs.
-
-Contribuciones
-¡Las contribuciones son bienvenidas! Si encuentras algún error o tienes alguna sugerencia, por favor, abre un issue o un pull request.
-
-Licencia
-El proyecto está licenciado bajo la licencia MIT.
-
-Este README.md incluye los siguientes detalles sobre tu proyecto:
-
-Una descripción general del proyecto.
-Instrucciones de instalación.
-Pruebas.
-Documentación.
-Contribuciones.
-Licencia.
-También incluye una explicación sobre cómo instalar el proyecto, que es específico de Django.
-
-Espero que este README.md sea útil para tu proyecto.
