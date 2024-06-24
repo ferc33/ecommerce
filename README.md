@@ -14,7 +14,7 @@ Este proyecto es una plataforma de comercio electrónico desarrollada para gesti
 
 1. Clona el repositorio:
    ```sh
-   git clone https://github.com/tu-usuario/ecommerce-main.git
+   git clone https://github.com/ferc33/ecommerce-main.git
    ```
 2. Navega al directorio del proyecto:
    ```sh
